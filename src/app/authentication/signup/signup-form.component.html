@@ -1,0 +1,33 @@
+<div *ngFor="let errors of errorMessage">
+  <div *ngIf="errors.text != ''" class="alert alert-danger">{{errors.text }}</div>
+</div>
+
+<form (ngSubmit)="onSubmit()" #signupForm="ngForm" >
+  <div class="row">
+    <div class="col-xs-6">
+      <input type="text" placeholder="Prénom" required [(ngModel)]="model.username" name="username" #name="ngModel"/>
+    </div>
+    <div class="col-xs-6">
+      <input type="text" placeholder="Nom" required [(ngModel)]="model.username" name="username" #name="ngModel"/>
+    </div>
+    <div class="col-xs-12">
+      <input type="email" placeholder="Email" required [(ngModel)]="model.email" name="email" #name="ngModel" />
+    </div>
+    <div class="col-xs-12">
+      <input type="password" placeholder="Mot de passe" required [(ngModel)]="model.plainPassword1" name="plainPassword1" #name="ngModel" />
+    </div>
+    <div class="col-xs-12">
+      <input type="password"  placeholder="Confirmer le mot de passe" required [(ngModel)]="model.plainPassword2" name="plainPassword2" #name="ngModel" />
+    </div>
+    <div class="col-xs-12">
+      <span class="type--fine-print">En vous inscrivant, vous acceptez
+        <a href="#">les conditions d'utilisation</a>
+      </span>
+    </div>
+    <div class="col-xs-12">
+      <button type="submit" class="btn btn--primary type--uppercase" [disabled]="!signupForm.form.valid">S'inscrire</button>
+    </div>
+
+  </div>
+  <!--end row-->
+</form>
